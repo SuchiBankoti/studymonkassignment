@@ -1,0 +1,59 @@
+header {
+  height: 10rem;
+  position: relative;
+  background-color: #f1f2ee;
+}
+.bar1 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5rem;
+  padding-left: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #f1f2ee;
+  z-index: 1000;
+}
+.register-bar {
+  border: 1px solid black;
+  width: 35%;
+  height: 50px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px;
+}
+.bar2 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+  position: absolute;
+  top: 5rem;
+  left: 0;
+}
+.bar2 > div {
+  margin: 10px;
+  width: fit-content;
+  padding: 1rem;
+}
+.bar2 > div:hover {
+  color: orange;
+  text-decoration: underline;
+}
+.logo-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 2px;
+}
+.logo {
+  width: 200px;
+  height: 100%;
+  mix-blend-mode: multiply;
+}

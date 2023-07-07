@@ -1,0 +1,267 @@
+#section1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  height: 85vh;
+}
+#section1::after {
+  content: "";
+  background-color: #373738;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(20% 40%, 80% 40%, 100% 100%, 0% 100%);
+  border-bottom: 1px solid #373738;
+}
+h1 {
+  font-size: 3.5rem;
+  height: 15%;
+  text-align: center;
+  padding: 2rem;
+  transition: transform 0.3s ease;
+}
+@keyframes headingAnimation {
+  0% {
+    font-size: 0.5rem;
+    opacity: 0;
+  }
+  100% {
+    font-size: 3.5rem;
+    opacity: 1;
+  }
+}
+
+h1 {
+  animation: headingAnimation 5s ease forwards;
+}
+
+.section1-p {
+  height: 15%;
+  font-size: 1.2rem;
+  text-align: center;
+  width: 35rem;
+  margin-top: 10px;
+}
+.section1-2 {
+  height: 30%;
+  width: 35rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  color: white;
+}
+.section1-2 > h2 {
+  margin: 10px;
+  font-size: 2rem;
+}
+.search-bar {
+  width: 25rem;
+  height: 3rem;
+  display: flex;
+}
+.input {
+  height: 85%;
+  width: 100%;
+}
+.search-bar > span {
+  border: 1px solid black;
+  width: 50px;
+  height: 35px;
+}
+#section1 > button {
+  width: 10rem;
+  height: 3rem;
+  border-radius: 20px;
+  background-color: grey;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  border: 0;
+  transition: transform 0.3s ease;
+  background-color: orange;
+}
+#section1 > button:hover {
+  transform: scaleX(1.5);
+}
+#section2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#section2::after {
+  content: "";
+  background-color: #373738;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(0 0, 100% 0, 80% 60%, 20% 60%);
+}
+.section2-1 {
+  width: 50%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 1;
+  color: white;
+}
+.section2-1 > h2 {
+  height: 15%;
+}
+.section2-heading {
+  font-size: 2.5rem;
+}
+.section2-text {
+  height: 20%;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: flex-end;
+}
+a {
+  color: orange;
+}
+.section2-2 {
+  height: 37%;
+  width: 80%;
+  margin: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.add-img {
+  position: relative;
+  border: 1px solid black;
+  background-color: #373738;
+  height: 12rem;
+  width: 12rem;
+  transition: transform 0.3s;
+  font-size: 1rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+  /* background-size: cover;
+  background-repeat: no-repeat; */
+}
+.add-img > p {
+  margin-top: 10px;
+}
+.div-title {
+  font-size: 2rem;
+  color: orange;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.div-text {
+  display: none;
+  font-size: 0.8rem;
+}
+.learn-btn {
+  width: fit-content;
+  height: fit-content;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: aliceblue;
+  font-size: 1rem;
+  display: none;
+  padding: 5px;
+  color: #373738;
+}
+.learn-btn:hover {
+  background-color: orange;
+}
+.add-img:hover {
+  transform: scale(1.5);
+}
+#section3 {
+  position: relative;
+  border: 1px solid black;
+}
+.section3-1 {
+  position: absolute;
+  top: 25px;
+  left: 10px;
+  width: 55%;
+  height: 80vh;
+  background-color: #373738;
+  padding: 5px;
+}
+.section3-sub {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  background-color: orange;
+  top: 50%;
+  left: 50%;
+  transform: translate(20%, -50%);
+}
+.section3-list {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  color: white;
+}
+li {
+  padding: 2rem;
+  font-size: 1.8rem;
+  font-family: "Courier New", Courier, monospace;
+  border-bottom: 1px solid white;
+  transition: transform ease-in-out 0.2s;
+}
+li:hover {
+  transform: scaleY(1.5);
+  background-color: rgb(243, 228, 202);
+  color: black;
+  cursor: pointer;
+}
+.container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+#background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f1f2ee;
+  z-index: -1;
+}
+#section4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  color: white;
+  align-items: center;
+  letter-spacing: 1px;
+  font-size: 1.2rem;
+}
+.section4-heading {
+  font-size: 3rem;
+}
+.section4-text {
+}
+.section4-btn {
+  width: 10rem;
+  height: 3rem;
+  border-radius: 20px;
+  background-color: grey;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  border: 0;
+  transition: transform 0.3s ease;
+  background-color: orange;
+}
+.section4-btn:hover {
+  transform: scaleX(1.5);
+}

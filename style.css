@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border-radius: 3px;
+}
+body {
+  color: #373738;
+  height: fit-content;
+  background-color: #f1f2ee;
+}
+.section {
+  height: 100vh;
+}
+footer {
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 2rem;
+  background-color: #f3ebd7;
+}
+footer > .logo-container {
+  color: rgb(199, 197, 197);
+  font-size: 4rem;
+  text-decoration: underline;
+  letter-spacing: 2px;
+  position: relative;
+}
+footer > .logo-container ::after {
+  content: "";
+  width: 455px;
+  height: 0.5rem;
+  background-color: orange;
+  position: absolute;
+  bottom: 40px;
+  left: 202px;
+}
