@@ -121,7 +121,7 @@ function getSearchData() {
   let result = [];
   const searchInputLocation = document.getElementById("searchInputLocation");
   const searchInputJobType = document.getElementById("searchInputJobType");
-  fetch("/data.json")
+  fetch("https://suchibankoti.github.io/studymonkassignment/data.json")
     .then((res) => res.json())
     .then((res) => {
       const l = searchInputLocation.value;
