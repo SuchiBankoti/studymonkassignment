@@ -1,11 +1,43 @@
+const hireData = [
+  {
+    title: "Offer Management",
+    text: "Streamline your offer process with custom offer templates, approval flows, and built-in eSignatures. Get offers out to candidates as quickly as possible, so you can keep up with your hiring goals.",
+    img: "https://assets-global.website-files.com/6127d83f257132e4fe0bddc6/621cf254e8ae4fb706887c68_breezyhr-offer-management.jpg",
+  },
+  {
+    title: "Background Screening",
+    text: "Get pre-employment screening done in days, not weeks. With integrations from top providers, Breezy makes it fast and easy to run background checks you can trust.",
+    img: "https://assets-global.website-files.com/6127d83f257132e4fe0bddc6/621cf296c2a0dc0d7a51c902_breezyhr-background-screening-p-800.jpeg",
+  },
+  {
+    title: "HRIS Integration",
+    text: "Breezy integrates with the most popular tools in recruiting and HR. That means you can easily move new hires into the HR system that works for you.",
+    img: "https://assets-global.website-files.com/6127d83f257132e4fe0bddc6/642f03526a398cc5374850e1_breezyhr-HRIS-integrations-p-800.jpg",
+  },
+  {
+    title: "Compliance",
+    text: "Our suite of tools and features help automate and simplify the process of staying General Data Protection Regulation (GDPR) compliant.",
+    img: "https://assets-global.website-files.com/6127d83f257132e4fe0bddc6/621cf2e8d3876c6c53895ffa_breezyhr-compliance-p-800.jpeg",
+  },
+];
+
 const allDivs = document.getElementsByClassName("add-img");
-console.log(allDivs);
+const listDetails = document.getElementById("listDetails");
+const list = document.getElementsByClassName("section3-li-items");
+const searchResults = document.getElementById("searchResults");
+
+window.addEventListener("scroll", changeBackgroundWithScroll);
 Array.from(allDivs).forEach((tag) => {
   tag.addEventListener("mouseover", addStyle);
 });
 Array.from(allDivs).forEach((tag) => {
   tag.addEventListener("mouseleave", removeStyle);
 });
+Array.from(list).forEach((li, i) => {
+  li.addEventListener("click", () => addListDetails(i));
+  li.addEventListener("click", addStyleTocurrentList);
+});
+
 function addStyle(e) {
   let children = e.target.querySelectorAll("*");
   let firstChild = children[0];
@@ -43,9 +75,8 @@ function removeStyle(e) {
     thirdChild.style.display = "none";
   }
 }
-window.addEventListener("scroll", () => {
+function changeBackgroundWithScroll() {
   const back = document.getElementById("background");
-
   let value = window.scrollY;
   if (value > 1420) {
     back.style.background = "#373738";
@@ -55,37 +86,8 @@ window.addEventListener("scroll", () => {
     back.style.background = "#f1f2ee";
     back.style.opacity = "1";
   }
-});
+}
 
-const hireData = [
-  {
-    title: "Offer Management",
-    text: "Streamline your offer process with custom offer templates, approval flows, and built-in eSignatures. Get offers out to candidates as quickly as possible, so you can keep up with your hiring goals.",
-    img: "https://assets-global.website-files.com/6127d83f257132e4fe0bddc6/621cf254e8ae4fb706887c68_breezyhr-offer-management.jpg",
-  },
-  {
-    title: "Background Screening",
-    text: "Get pre-employment screening done in days, not weeks. With integrations from top providers, Breezy makes it fast and easy to run background checks you can trust.",
-    img: "https://assets-global.website-files.com/6127d83f257132e4fe0bddc6/621cf296c2a0dc0d7a51c902_breezyhr-background-screening-p-800.jpeg",
-  },
-  {
-    title: "HRIS Integration",
-    text: "Breezy integrates with the most popular tools in recruiting and HR. That means you can easily move new hires into the HR system that works for you.",
-    img: "https://assets-global.website-files.com/6127d83f257132e4fe0bddc6/642f03526a398cc5374850e1_breezyhr-HRIS-integrations-p-800.jpg",
-  },
-  {
-    title: "Compliance",
-    text: "Our suite of tools and features help automate and simplify the process of staying General Data Protection Regulation (GDPR) compliant.",
-    img: "https://assets-global.website-files.com/6127d83f257132e4fe0bddc6/621cf2e8d3876c6c53895ffa_breezyhr-compliance-p-800.jpeg",
-  },
-];
-
-const listDetails = document.getElementById("listDetails");
-const list = document.getElementsByClassName("section3-li-items");
-Array.from(list).forEach((li, i) => {
-  li.addEventListener("click", () => addListDetails(i));
-  li.addEventListener("click", addStyleTocurrentList);
-});
 function addStyleTocurrentList(e) {
   Array.from(list).forEach((li) => {
     li.classList.remove("selected-list");
@@ -110,4 +112,59 @@ function addListDetails(id) {
   listDetails.appendChild(h2);
   listDetails.appendChild(p);
   listDetails.appendChild(img);
+}
+const searchBtn = document.getElementById("searchBtn");
+searchBtn.addEventListener("click", getSearchData);
+function getSearchData() {
+  searchResults.style.display = "block";
+  searchResults.textContent = "Loading...";
+  let result = [];
+  const searchInputLocation = document.getElementById("searchInputLocation");
+  const searchInputJobType = document.getElementById("searchInputJobType");
+  fetch("/data.json")
+    .then((res) => res.json())
+    .then((res) => {
+      const l = searchInputLocation.value;
+      const j = searchInputJobType.value;
+      if (l && j) {
+        result = res.filter(
+          (element) =>
+            element.location.toLowerCase() === l.toLowerCase() &&
+            element.profile.toLowerCase() === j.toLowerCase()
+        );
+      } else if (l && !j) {
+        result = res.filter(
+          (element) => element.location.toLowerCase() === l.toLowerCase()
+        );
+      } else if (!l && j) {
+        result = res.filter(
+          (element) => element.profile.toLowerCase() === j.toLowerCase()
+        );
+      } else {
+        result = [];
+      }
+      if (result.length !== 0) {
+        searchResults.textContent = "";
+        result.forEach((r) => {
+          const div = document.createElement("div");
+          div.classList.add("search-item");
+          const name = document.createElement("p");
+          const profile = document.createElement("p");
+          const loc = document.createElement("p");
+          const mail = document.createElement("p");
+          name.textContent = r.name;
+          profile.textContent = r.profile;
+          loc.textContent = r.location;
+          mail.textContent = r.email;
+          div.appendChild(name);
+          div.appendChild(profile);
+          div.appendChild(loc);
+          div.appendChild(mail);
+          searchResults.appendChild(div);
+        });
+      } else {
+        searchResults.textContent = "No results found";
+      }
+    })
+    .catch((e) => console.log(e));
 }

@@ -1,0 +1,50 @@
+[
+  {
+    "name": "suchi",
+    "location": "delhi",
+    "email": "suchi@gmail.com",
+    "profile": "junior web developer"
+  },
+  {
+    "name": "kunal",
+    "location": "gurgaon",
+    "email": "suchi@gmail.com",
+    "profile": "junior web developer"
+  },
+  {
+    "name": "megha",
+    "location": "pune",
+    "email": "suchi@gmail.com",
+    "profile": "junior web developer"
+  },
+  {
+    "name": "mori",
+    "location": "banglore",
+    "profile": "junior web developer",
+    "email": "suchi@gmail.com"
+  },
+  {
+    "name": "suchi",
+    "location": "noida",
+    "email": "suchi@gmail.com",
+    "profile": "junior web developer"
+  },
+  {
+    "name": "kunal",
+    "location": "mumbai",
+    "email": "suchi@gmail.com",
+    "profile": "junior web developer"
+  },
+  {
+    "name": "megha",
+    "location": "hyderabad",
+    "email": "suchi@gmail.com",
+    "profile": "junior web developer"
+  },
+  {
+    "name": "mori",
+    "location": "chandigarh",
+    "profile": "junior web developer",
+    "email": "suchi@gmail.com"
+  }
+]

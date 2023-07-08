@@ -36,3 +36,15 @@ footer > .logo-container ::after {
   bottom: 40px;
   left: 202px;
 }
+#searchResults {
+  display: none;
+  width: 400px;
+  height: 300px;
+  background-color: #f1f2ee;
+  color: #373738;
+}
+.search-item {
+  display: flex;
+  justify-content: space-evenly;
+  font-weight: bold;
+}

@@ -65,11 +65,12 @@ h1 {
 .input {
   height: 85%;
   width: 100%;
+  padding: 1rem;
 }
 .search-bar > span {
-  border: 1px solid black;
-  width: 50px;
-  height: 35px;
+  font-size: 1.7rem;
+  text-align: end;
+  cursor: pointer;
 }
 #section1 > button {
   width: 10rem;
@@ -238,8 +239,6 @@ li:hover {
 }
 .section4-heading {
   font-size: 3rem;
-}
-.section4-text {
 }
 .section4-btn {
   width: 10rem;

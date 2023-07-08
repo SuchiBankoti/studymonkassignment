@@ -15,7 +15,7 @@
           <img src="./images/eaglescout.png" alt="logo" class="logo" />
           <div>EAGLE SCOUT</div>
         </div>
-        <div class="register-bar">Sign in /login</div>
+        <div class="register-bar"><a href="signup.html">Sign in /login</a></div>
       </div>
       <div class="bar2">
         <div>PRODUCTS</div>
@@ -34,9 +34,22 @@
         <div class="section1-2">
           <h2>Hire from Anywhere</h2>
           <div class="search-bar">
-            <input class="input" placeholder="search" type="text" />
-            <span>Search</span>
+            <input
+              class="input"
+              placeholder="location..."
+              type="text"
+              id="searchInputLocation"
+            />
+            <span>-</span>
+            <input
+              class="input"
+              placeholder="job profile..."
+              type="text"
+              id="searchInputJobType"
+            />
+            <span id="searchBtn">&#128269;</span>
           </div>
+          <div id="searchResults"></div>
         </div>
       </div>
       <div id="section2" class="section">
@@ -49,7 +62,7 @@
             click.
           </p>
           <p class="section2-text">
-            <a>Learn more about Advertise & Attract</a>
+            <a>Learn more about Advertise & Attract <span>&darr;</span> </a>
           </p>
         </div>
         <div class="section2-2">

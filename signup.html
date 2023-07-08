@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SignUp</title>
+    <link rel="stylesheet" href="signup.css" />
+  </head>
+  <body>
+    <form class="form">
+      <div class="input-list-container">
+        <div>
+          <label for="name">Name</label>
+          <input
+            id="name"
+            type="text"
+            placeholder="name"
+            required
+            class="input"
+          />
+        </div>
+        <div>
+          <label for="company">Company</label>
+          <input
+            id="company"
+            type="text"
+            required
+            placeholder="company"
+            class="input"
+          />
+        </div>
+        <div>
+          <label for="size">Company Size</label>
+          <select id="size" class="input">
+            <option>Company Size</option>
+            <option>Less than 100 employees</option>
+            <option>100-999 employees</option>
+            <option>1000-1999 employees</option>
+            <option>2000+ employees</option>
+          </select>
+        </div>
+        <div>
+          <label for="location">Location</label>
+          <input
+            id="location"
+            type="text"
+            class="input"
+            placeholder="location"
+          />
+        </div>
+        <div>
+          <label for="number">Phone Number</label>
+          <input
+            id="number"
+            type="number"
+            class="input"
+            placeholder="phone number"
+          />
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            class="input"
+            placeholder="yourmail@mail.com"
+          />
+        </div>
+      </div>
+      <div class="password-container">
+        <p>Set up password</p>
+        <label id="passwordLabel">Password</label>
+        <input type="text" id="passwordInput" required class="input" />
+        <div id="passwordReq">
+          <p>Password must contain:</p>
+          <p id="length">*at least 8 characters</p>
+          <p id="uppercase">*at least one Uppercase letter</p>
+          <p id="special">*at least one special character</p>
+          <p id="digit">*at least one digit</p>
+        </div>
+      </div>
+      <div class="check-list">
+        <label class="checkbox">
+          <input type="checkbox" />
+          <p>Subscribe to our Newsletter</p>
+        </label>
+      </div>
+    </form>
+    <button id="sign">Sign Up</button>
+    <script src="signup.js"></script>
+  </body>
+</html>
