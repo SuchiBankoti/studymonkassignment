@@ -166,7 +166,11 @@ function addListDetails(id) {
 const searchBtn = document.getElementById("searchBtn");
 searchBtn.addEventListener("click", getSearchData);
 function getSearchData() {
-  searchResults.style.display = "block";
+  if (searchResults.style.display === "block") {
+    searchResults.style.display = "none";
+  } else {
+    searchResults.style.display = "block";
+  }
   searchResults.textContent = "Loading...";
   let result = "";
   const searchInputLocation = document.getElementById("searchInputLocation");

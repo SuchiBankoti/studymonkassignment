@@ -1,0 +1,23 @@
+#searchResults {
+  display: none;
+  width: 920px;
+  height: 430px;
+  background-color: orange;
+  color: #373738;
+  position: absolute;
+  bottom: 100px;
+  left: -180px;
+  border-radius: 10px;
+  overflow-y: scroll;
+  text-align: center;
+  font-size: larger;
+}
+.search-item {
+  display: flex;
+  justify-content: space-evenly;
+  font-weight: bold;
+  font-size: 1rem;
+  height: 50px;
+  padding: 0.5rem;
+  border-bottom: 1px solid black;
+}
