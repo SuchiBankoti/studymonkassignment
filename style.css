@@ -39,12 +39,16 @@ footer > .logo-container ::after {
 #searchResults {
   display: none;
   width: 400px;
-  height: 300px;
+  height: max-content;
   background-color: #f1f2ee;
   color: #373738;
+  overflow: scroll;
 }
 .search-item {
   display: flex;
   justify-content: space-evenly;
   font-weight: bold;
+  height: 50px;
+  padding: 0.5rem;
+  border-bottom: 1px solid black;
 }

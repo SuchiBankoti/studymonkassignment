@@ -20,6 +20,56 @@ const hireData = [
     img: "https://assets-global.website-files.com/6127d83f257132e4fe0bddc6/621cf2e8d3876c6c53895ffa_breezyhr-compliance-p-800.jpeg",
   },
 ];
+const userData = [
+  {
+    name: "suchi",
+    location: "delhi",
+    email: "suchi@gmail.com",
+    profile: "web developer",
+  },
+  {
+    name: "kunal",
+    location: "gurgaon",
+    email: "suchi@gmail.com",
+    profile: "javascript developer",
+  },
+  {
+    name: "megha",
+    location: "pune",
+    email: "suchi@gmail.com",
+    profile: "react developer",
+  },
+  {
+    name: "mori",
+    location: "banglore",
+    profile: "frontend web developer",
+    email: "suchi@gmail.com",
+  },
+  {
+    name: "suchi",
+    location: "noida",
+    email: "suchi@gmail.com",
+    profile: "junior web developer",
+  },
+  {
+    name: "kunal",
+    location: "mumbai",
+    email: "suchi@gmail.com",
+    profile: "web developer",
+  },
+  {
+    name: "megha",
+    location: "hyderabad",
+    email: "suchi@gmail.com",
+    profile: "ui designer",
+  },
+  {
+    name: "mori",
+    location: "chandigarh",
+    profile: "junior web developer",
+    email: "suchi@gmail.com",
+  },
+];
 
 const allDivs = document.getElementsByClassName("add-img");
 const listDetails = document.getElementById("listDetails");
@@ -118,53 +168,48 @@ searchBtn.addEventListener("click", getSearchData);
 function getSearchData() {
   searchResults.style.display = "block";
   searchResults.textContent = "Loading...";
-  let result = [];
+  let result = "";
   const searchInputLocation = document.getElementById("searchInputLocation");
   const searchInputJobType = document.getElementById("searchInputJobType");
-  fetch("https://suchibankoti.github.io/studymonkassignment/data.json")
-    .then((res) => res.json())
-    .then((res) => {
-      const l = searchInputLocation.value;
-      const j = searchInputJobType.value;
-      if (l && j) {
-        result = res.filter(
-          (element) =>
-            element.location.toLowerCase() === l.toLowerCase() &&
-            element.profile.toLowerCase() === j.toLowerCase()
-        );
-      } else if (l && !j) {
-        result = res.filter(
-          (element) => element.location.toLowerCase() === l.toLowerCase()
-        );
-      } else if (!l && j) {
-        result = res.filter(
-          (element) => element.profile.toLowerCase() === j.toLowerCase()
-        );
-      } else {
-        result = [];
-      }
-      if (result.length !== 0) {
-        searchResults.textContent = "";
-        result.forEach((r) => {
-          const div = document.createElement("div");
-          div.classList.add("search-item");
-          const name = document.createElement("p");
-          const profile = document.createElement("p");
-          const loc = document.createElement("p");
-          const mail = document.createElement("p");
-          name.textContent = r.name;
-          profile.textContent = r.profile;
-          loc.textContent = r.location;
-          mail.textContent = r.email;
-          div.appendChild(name);
-          div.appendChild(profile);
-          div.appendChild(loc);
-          div.appendChild(mail);
-          searchResults.appendChild(div);
-        });
-      } else {
-        searchResults.textContent = "No results found";
-      }
-    })
-    .catch((e) => console.log(e));
+  const l = searchInputLocation.value;
+  const j = searchInputJobType.value;
+  if (l && j) {
+    result = userData.filter(
+      (element) =>
+        element.location.toLowerCase() === l.toLowerCase() &&
+        element.profile.toLowerCase() === j.toLowerCase()
+    );
+  } else if (l && !j) {
+    result = userData.filter(
+      (element) => element.location.toLowerCase() === l.toLowerCase()
+    );
+  } else if (!l && j) {
+    result = userData.filter(
+      (element) => element.profile.toLowerCase() === j.toLowerCase()
+    );
+  } else {
+    result = [];
+  }
+  if (result.length !== 0) {
+    searchResults.textContent = "";
+    result.forEach((r) => {
+      const div = document.createElement("div");
+      div.classList.add("search-item");
+      const name = document.createElement("p");
+      const profile = document.createElement("p");
+      const loc = document.createElement("p");
+      const mail = document.createElement("p");
+      name.textContent = r.name;
+      profile.textContent = r.profile;
+      loc.textContent = r.location;
+      mail.textContent = r.email;
+      div.appendChild(name);
+      div.appendChild(profile);
+      div.appendChild(loc);
+      div.appendChild(mail);
+      searchResults.appendChild(div);
+    });
+  } else {
+    searchResults.textContent = "No results found";
+  }
 }
